@@ -7,6 +7,10 @@ export default makeStyles((theme) => ({
       display: 'block',
     },
   },
+  text : {
+    marginLeft : '545px'
+  },
+ 
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -28,5 +32,6 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex', justifyContent: 'space-between',
+    
   },
 }));
