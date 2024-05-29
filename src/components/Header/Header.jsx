@@ -23,7 +23,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
               
                 <SearchIcon />
               </div>
-              <InputBase placeholder="Search…" classes={{ root: classes.inputRoot, input: classes.inputInput }} />
+              <InputBase placeholder="Explore new places" classes={{ root: classes.inputRoot, input: classes.inputInput }} />
             </div>
           {/*</Autocomplete>*/}
         </Box>
