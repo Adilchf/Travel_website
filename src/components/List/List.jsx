@@ -5,21 +5,13 @@ import PlaceDetails from '../PlaceDetails/Placedetails.jsx';
 import useStyles from './Styles.js';
 import { ChevronLeft } from '@material-ui/icons';
 
-const List = () => {
+const List = ({places}) => {
 
   const classes = useStyles();
   const [type , setType]= useState('restaurants');
   const [rating, setRating]= useState('');
-  const places =[ 
-    {name:'Chlef'},
-    {name:'Zeboudja'},
-    {name:'Alger'},
-    {name:'Annaba'},
-    {name:'Oran'},
-    {name:'Mostaganem'},
-    {name:'SBA'},
-    {name:'Blida'},
-  ]
+  
+ 
 
 
 

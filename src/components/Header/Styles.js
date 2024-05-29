@@ -7,9 +7,7 @@ export default makeStyles((theme) => ({
       display: 'block',
     },
   },
-  text : {
-    marginLeft : '545px'
-  },
+
  
   search: {
     position: 'relative',
