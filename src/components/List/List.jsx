@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
-import PlaceDetails from '../PlaceDetails/Placedetails.jsx';
+import Placedetails from '../PlaceDetails/Placedetails.jsx';
 import useStyles from './Styles.js';
 import { ChevronLeft } from '@material-ui/icons';
 
@@ -10,6 +10,8 @@ const List = ({places}) => {
   const classes = useStyles();
   const [type , setType]= useState('restaurants');
   const [rating, setRating]= useState('');
+  
+  
   
 
 
@@ -40,7 +42,7 @@ const List = ({places}) => {
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
               <Grid  key={i} item xs={12}>
-                <PlaceDetails place={place} />
+                <Placedetails place={place} />
               </Grid>
             ))}
           </Grid>

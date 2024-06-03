@@ -23,9 +23,9 @@ export const getPlacesData = async(sw, ne)=> {
         }
       });
       
-        return data;
+      return data;
     } catch (error) {
         console.log('error')
         
     }
-}
+};
