@@ -5,7 +5,7 @@ import Placedetails from '../PlaceDetails/Placedetails.jsx';
 import useStyles from './Styles.js';
 import { ChevronLeft } from '@material-ui/icons';
 
-const List = ({places}) => {
+const List = ({ places }) => {
 
   const classes = useStyles();
   const [type , setType]= useState('restaurants');

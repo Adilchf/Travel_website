@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './Styles.js';
 
-const Placedetails = ({place}) => {
+const Placedetails = ({ place }) => {
   
   <h1>{place.name}</h1>
   
