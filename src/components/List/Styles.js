@@ -10,13 +10,17 @@ export default makeStyles((theme) => ({
   loading: {
     height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center',
   },
+  font:{
+    fontFamily:'serif',
+  },
   container: {
     padding: '25px',
+    
   },
   marginBottom: {
     marginBottom: '30px',
   },
   list: {
-    height: '75vh', overflow: 'auto',
+    height: '65vh', overflow: 'auto',
   },
 }));
