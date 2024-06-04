@@ -33,14 +33,15 @@ function App() {
     setIsLoading(true);
     if (bounds) {  // Check if bounds is not null
       getPlacesData(type, bounds.sw, bounds.ne)
-      .then((data) => {
-        setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
-        setFilteredPlaces([]);
-        setRating('');
-        setIsLoading(false);
-      });
+        .then((data) => {
+          setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
+          setFilteredPlaces([]);
+          setRating('');
+          setIsLoading(false);
+        });
+      
     }
-  }, [coordinates, type, bounds]);
+  }, [ type, bounds]);
   
   const onLoad = (autoC) => setAutocomplete(autoC);
 
