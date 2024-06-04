@@ -5,13 +5,16 @@ import Placedetails from '../PlaceDetails/Placedetails.jsx';
 import useStyles from './Styles.js';
 import { ChevronLeft } from '@material-ui/icons';
 
-const List = ({ places }) => {
+const List = ({ places, childClicked, isLoading}) => {
 
   const classes = useStyles();
   const [type , setType]= useState('restaurants');
+  const [elRefs, setElRefs] = useState([]);
   const [rating, setRating]= useState('');
   
-  
+  useEffect(() => {
+    setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+  }, [places]);
   
 
 
@@ -20,7 +23,11 @@ const List = ({ places }) => {
   return (
     <div className={classes.container}>
       <Typography variant="h4">Food & Dining around you</Typography>
-      
+      {isLoading ? (
+        <div className={classes.loading}>
+          <CircularProgress size="5rem" />
+        </div>
+      ) : (
         <>
           <FormControl className={classes.formControl}>
             <InputLabel id="type">Type</InputLabel>
@@ -41,15 +48,16 @@ const List = ({ places }) => {
           </FormControl>
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
-              <Grid  key={i} item xs={12}>
-                <Placedetails place={place} />
+              <Grid ref={elRefs[i]} key={i} item xs={12}>
+                <Placedetails selected={Number(childClicked) === i} refProp={elRefs[i]} place={place} />
               </Grid>
             ))}
           </Grid>
         </>
-      
+      )}
     </div>
   );
 };
 
 export default List;
+
