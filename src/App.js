@@ -10,8 +10,12 @@ function App() {
 
   const [places , setPlaces]= useState([]);
   const [coordinates , setCoordinates]= useState({});
+  const [type , setType]= useState('restaurants');
+  const [rating, setRating]= useState('');
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [bounds , setBounds]= useState(null);
   const [childClicked, setChildClicked] = useState(null);
+  const [autocomplete, setAutocomplete] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -19,32 +23,50 @@ function App() {
       setCoordinates({ lat: latitude, lng: longitude });
     });
   }, []);
+  useEffect(() => {
+    const filtered = places.filter((place) => Number(place.rating) > rating);
+
+    setFilteredPlaces(filtered);
+  }, [rating]);
 
   useEffect(() => {
     setIsLoading(true);
     if (bounds) {  // Check if bounds is not null
-      getPlacesData(bounds.sw, bounds.ne)
+      getPlacesData(type, bounds.sw, bounds.ne)
       .then((data) => {
-        console.log(data)
-        setPlaces(data);
+        setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
+        setFilteredPlaces([]);
+        setRating('');
         setIsLoading(false);
       });
     }
-  }, [coordinates, bounds]);
+  }, [coordinates, type, bounds]);
   
+  const onLoad = (autoC) => setAutocomplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoordinates({ lat, lng });
+  };
 
 
 
     return (
     <>
       <CssBaseline />
-      <Header />
+      <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
       <Grid container spacing={3} style={{width :'100%'}}>
       <Grid item xs={12} md={4}>
         <List 
           isLoading={isLoading}
-          places={places}
+          places={filteredPlaces.length ? filteredPlaces : places}
           childClicked={childClicked}
+          type={type}
+          setType={setType}
+          rating={rating}
+          setRating={setRating}
         />
       </Grid>
       <Grid item xs={12} md={8}>
@@ -53,7 +75,7 @@ function App() {
           setCoordinates={setCoordinates}
           setBounds={setBounds}
           coordinates={coordinates}
-          places={places}
+          places={filteredPlaces.length ? filteredPlaces : places}
         />
       </Grid>
 

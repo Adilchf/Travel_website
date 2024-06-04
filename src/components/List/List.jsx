@@ -5,15 +5,15 @@ import Placedetails from '../PlaceDetails/Placedetails.jsx';
 import useStyles from './Styles.js';
 import { ChevronLeft } from '@material-ui/icons';
 
-const List = ({ places, childClicked, isLoading}) => {
+const List = ({ places, childClicked, isLoading, type, setType, rating, setRating}) => {
 
   const classes = useStyles();
-  const [type , setType]= useState('restaurants');
+
   const [elRefs, setElRefs] = useState([]);
-  const [rating, setRating]= useState('');
+
   
   useEffect(() => {
-    setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+    setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
   }, [places]);
   
 
