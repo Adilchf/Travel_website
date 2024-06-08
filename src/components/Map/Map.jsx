@@ -20,7 +20,7 @@ const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) 
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
-        margin={[50,50,50,50]}
+        margin={[50,50,50,0]}
         options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
         onChange={(e) => {
         

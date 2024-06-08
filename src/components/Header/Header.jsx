@@ -12,9 +12,9 @@ const Header = ({ onPlaceChanged, onLoad }) => {
   return (
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
-      <img src={travel}  alt="logo" style={{  marginRight:'8px'}} />
-        <Typography variant="h5" style={{marginRight:'730px'}} className={classes.title}>
-          
+      
+        <Typography variant="h5" className={classes.title}>
+          <img src={travel}  alt="logo" style={{  marginRight:'8px'}} />
             Travel Advisor
         </Typography>
         <Box display="flex">

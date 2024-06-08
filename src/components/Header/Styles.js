@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   title: {
     display: 'none',
     
-    fontFamily:'Playfair Display',
+    
     [theme.breakpoints.up('sm')]: {
       display: 'block',
       
