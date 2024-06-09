@@ -13,7 +13,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
       
-        <Typography variant="h5" className={classes.title}>
+        <Typography variant="h5"  className={classes.title}>
           <img src={travel}  alt="logo" style={{  marginRight:'8px'}} />
             Travel Advisor
         </Typography>

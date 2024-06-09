@@ -24,12 +24,7 @@ const Placedetails = ({ place, selected, refProp }) => {
         <Rating name="read-only" value={Number(place.rating)} readOnly />
         <Typography component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
       </Box>
-      <Box display="flex" justifyContent="space-between">
-        <Typography component="legend">Price</Typography>
-        <Typography gutterBottom variant="subtitle1">
-          {place.price_level}
-        </Typography>
-      </Box>
+
       <Box display="flex" justifyContent="space-between">
         <Typography component="legend">Ranking</Typography>
         <Typography gutterBottom variant="subtitle1">
